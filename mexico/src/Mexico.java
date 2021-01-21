@@ -28,6 +28,7 @@ public class Mexico {
         Player[] players;    // The players (array of Player objects)
         Player current;      // Current player for round
         Player leader;       // Player starting the round
+        int played = 0;
 
         players = getPlayers();
         current = getRandomPlayer(players);
@@ -42,31 +43,31 @@ public class Mexico {
             if ("r".equals(cmd)) {
 
                     // --- Process ------
-                    if (current.nRolls < maxRolls){
+                    if (current.nRolls < maxRolls && (current == leader || current.nRolls < leader.nRolls)){
                         rollDice(current);
+                        roundMsg(current);
                     }
-                    
-                    // ---- Out --------
-                    roundMsg(current);
-                    if (current.nRolls >= 3){
+                    if (current.nRolls >= maxRolls || (current != leader && current.nRolls >= leader.nRolls)){
                         current = next(players, current);
+                        played++;
                     }
 
             } else if ("n".equals(cmd)) {
                 current = next(players, current);
+                played++;
                  // Process
             } else {
                 out.println("?");
             }
 
-            if (false) {
+            if (played == players.length) {
                 // --- Process -----
-
+                Player tmpLoser = getLoser(players);
+                players = allRolled(players);
+                pot++;
                 // ----- Out --------------------
-                out.println("Round done ... lost!");
+                out.println("Round done " + tmpLoser.name + " lost!");
                 out.println("Next to roll is " + current.name);
-
-                statusMsg(players);
             }
         }
         out.println("Game Over, winner is " + players[0].name + ". Will get " + pot + " from pot");
@@ -139,7 +140,15 @@ public class Mexico {
         return players;
     }
 
-    void allRolled(){
+    Player[] allRolled(Player[] players){
+        Player loser = getLoser(players);
+        loser.amount--;
+        if (loser.amount == 0){
+            removeLoser(players, loser);
+        } 
+        players = clearRoundResults(players);
+        statusMsg(players);
+        return players;
     }
     
     Player rollDice(Player current){
