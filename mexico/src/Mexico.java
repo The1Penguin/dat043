@@ -96,11 +96,9 @@ public class Mexico {
         int snd = player.secDice;
         if ((fst==2 && snd == 1) || (fst==1 && snd==2)){
             return mexico;
-        }
-        else if (fst==snd){
+        } else if (fst==snd){
             return ((fst*10 + snd)*10);
-        }
-        else if (fst*10 + snd > snd*10 + fst){
+        } else if (fst*10 + snd > snd*10 + fst){
             return (fst*10 + snd);
         }
         return (snd*10+fst);
