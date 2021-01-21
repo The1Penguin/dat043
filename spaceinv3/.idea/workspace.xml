@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3a2859d1-c052-417d-aa9e-45e5ab7cc331" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/classdigram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex1LoopPuzzlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex1LoopPuzzlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex2SumSeries.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex2SumSeries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex3ArrayMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex3ArrayMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex4Theory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex4Theory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex5MedianKthSmallest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex5MedianKthSmallest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex6PointOfInequality.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex6PointOfInequality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex7GenericMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex7GenericMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex8LCRSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek3/src/Ex8LCRSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex1WordCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex1WordCount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex2PigLatin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex2PigLatin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex3ReadNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex3ReadNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex4CheckParen.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex4CheckParen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex5StringOrdering.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex5StringOrdering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex6SplitList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex6SplitList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex7Grouping.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex7Grouping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex8SJT.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek4/src/Ex8SJT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex1useaclass/Ex1TestRational.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex1useaclass/Ex1TestRational.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex1useaclass/Rational.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex1useaclass/Rational.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex2usemoreclasses/Ex2TestPointTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex2usemoreclasses/Ex2TestPointTriangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex2usemoreclasses/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex2usemoreclasses/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex2usemoreclasses/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex2usemoreclasses/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex4hangman/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex4hangman/CLI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex4hangman/HangMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex4hangman/HangMan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex4hangman/Man.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex4hangman/Man.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex4hangman/Secret.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/ex4hangman/Secret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/exercises5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek5/src/exercises5.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex1inheritance/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex1inheritance/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex1inheritance/TestCarVan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex1inheritance/TestCarVan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex1inheritance/Van.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex1inheritance/Van.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex1inheritance/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex1inheritance/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex2asteroids/AsteroidsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex2asteroids/AsteroidsGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex2asteroids/solution/AbstractMovable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex2asteroids/solution/AbstractPositionable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex2asteroids/solution/Asteroid.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex2asteroids/solution/Asteroids.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex2asteroids/solution/AsteroidsGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/ex2asteroids/solution/Spaceship.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/exercises6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../common/xer/OUT/xerweek6/src/exercises6.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calculator/Lab3Calc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../calculator/Lab3Calc.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calculator/assignment3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../calculator/assignment3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calculator/calc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calculator/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../calculator/src/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calculator/src/CalculatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../calculator/src/CalculatorGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calculator/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../calculator/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../calculator/src/WebCalcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../calculator/src/WebCalcServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mexico/src/Mexico.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mexico/src/Mexico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../neighbours/assignment2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../neighbours/assignment2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assignment4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spaceinvader.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spaceinv/event/EventBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spaceinv/event/EventBus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spaceinv/event/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spaceinv/event/EventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spaceinv/model/OuterSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spaceinv/model/OuterSpace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spaceinv/model/Positionable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spaceinv/model/Positionable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spaceinv/model/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spaceinv/model/Projectile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spaceinv/model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/spaceinv/model/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../calculator/Lab3Calc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../calculator/Lab3Calc.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../calculator/assignment3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../calculator/assignment3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../calculator/calc.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../calculator/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../calculator/src/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../calculator/src/CalculatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../calculator/src/CalculatorGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../calculator/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../calculator/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../calculator/src/WebCalcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../calculator/src/WebCalcServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../spaceinv3/spaceinvader.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../spaceinv3/spaceinvader.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1mh6RSPjjvWIhHpcbIav5E7jssv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../spaceinv3" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="SIGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="spaceinv.view.SIGUI" />
+      <module name="spaceinv3" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/devel/java/javafx-sdk-13.0.1/lib --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="spaceinv.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SIGUI" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a2859d1-c052-417d-aa9e-45e5ab7cc331" name="Default Changelist" comment="" />
+      <created>1609933466787</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609933466787</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="301" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609935143543">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="301" y="193" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609935143542" />
+    <state x="787" y="319" width="526" height="480" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1609935003427">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="787" y="319" width="526" height="480" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609935003427" />
+    <state x="624" y="303" width="426" height="480" key="FileChooserDialogImpl" timestamp="1609933529106">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="624" y="303" width="426" height="480" key="FileChooserDialogImpl/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609933529106" />
+    <state width="1135" height="263" key="GridCell.Tab.0.bottom" timestamp="1609935145862">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1135" height="263" key="GridCell.Tab.0.bottom/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609935145862" />
+    <state width="1135" height="263" key="GridCell.Tab.0.center" timestamp="1609935145862">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1135" height="263" key="GridCell.Tab.0.center/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609935145862" />
+    <state width="1135" height="263" key="GridCell.Tab.0.left" timestamp="1609935145862">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1135" height="263" key="GridCell.Tab.0.left/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609935145862" />
+    <state width="1135" height="263" key="GridCell.Tab.0.right" timestamp="1609935145862">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1135" height="263" key="GridCell.Tab.0.right/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609935145862" />
+    <state x="541" y="141" width="1026" height="841" key="SettingsEditor" timestamp="1609935007564">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="541" y="141" width="1026" height="841" key="SettingsEditor/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609935007564" />
+  </component>
+</project>
