@@ -165,13 +165,11 @@ public class Mexico {
     Player[] getPlayers() {
         // Ugly for now. If using a constructor this may
         // be cleaned up.
-        Player[] players = new Player[3];
-        Player p1 = new Player("Olle");
-        Player p2 = new Player("Fia");
-        Player p3 = new Player("Lisa");
-        players[0] = p1;
-        players[1] = p2;
-        players[2] = p3;
+
+        Player[] players = {
+        new Player("Olle"),
+        new Player("Fia"),
+        new Player("Lisa")};
         return players;
     }
 
