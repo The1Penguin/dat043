@@ -62,6 +62,7 @@ public class Mexico {
 
             if (played == players.length) {
                 // --- Process -----
+                played = 0;
                 Player tmpLoser = getLoser(players);
                 players = allRolled(players);
                 pot++;
@@ -143,8 +144,9 @@ public class Mexico {
     Player[] allRolled(Player[] players){
         Player loser = getLoser(players);
         loser.amount--;
+        out.println("" + loser.name + " " + loser.amount);
         if (loser.amount == 0){
-            removeLoser(players, loser);
+            players = removeLoser(players, loser);
         } 
         players = clearRoundResults(players);
         statusMsg(players);
@@ -164,15 +166,9 @@ public class Mexico {
         // Ugly for now. If using a constructor this may
         // be cleaned up.
         Player[] players = new Player[3];
-        Player p1 = new Player();
-        p1.name = "Olle";
-        p1.amount = startAmount;
-        Player p2 = new Player();
-        p2.name = "Fia";
-        p2.amount = startAmount;
-        Player p3 = new Player();
-        p3.name = "Lisa";
-        p3.amount = startAmount;
+        Player p1 = new Player("Olle");
+        Player p2 = new Player("Fia");
+        Player p3 = new Player("Lisa");
         players[0] = p1;
         players[1] = p2;
         players[2] = p3;
@@ -210,6 +206,11 @@ public class Mexico {
         int fstDice;  // Result of first dice
         int secDice;  // Result of second dice
         int nRolls;   // Current number of rolls
+
+        public Player (String nameIn){
+            name = nameIn;
+            amount = startAmount;
+        }
     }
 
     /**************************************************
@@ -223,7 +224,7 @@ public class Mexico {
     void test() {
         // A few hard coded player to use for test
         // NOTE: Possible to debug tests from here, very efficient!
-        Player[] ps = {new Player(), new Player(), new Player()};
+        Player[] ps = {new Player("Oskar"), new Player("Kim"), new Player("Johan")};
         ps[0].fstDice = 2;
         ps[0].secDice = 6;
         ps[1].fstDice = 6;
