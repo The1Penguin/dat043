@@ -25,10 +25,10 @@ public class Mexico {
         //test();            // <----------------- UNCOMMENT to test
 
         int pot = 0;         // What the winner will get
+        int played = 0;      // Amount of players that have finished this round
         Player[] players;    // The players (array of Player objects)
         Player current;      // Current player for round
         Player leader;       // Player starting the round
-        int played = 0;
 
         players = getPlayers();
         current = getRandomPlayer(players);
@@ -48,6 +48,7 @@ public class Mexico {
                         roundMsg(current);
                     }
                     if (current.nRolls >= maxRolls || (current != leader && current.nRolls >= leader.nRolls)){
+                        // If player has rolled all their dice
                         current = next(players, current);
                         played++;
                     }
@@ -62,10 +63,17 @@ public class Mexico {
 
             if (played == players.length) {
                 // --- Process -----
-                played = 0;
-                Player tmpLoser = getLoser(players);
+                played = 0;                                 // Reset amount played
+                Player tmpLoser = getLoser(players);        // Gets who lost the round
                 players = allRolled(players);
-                pot++;
+                pot++;                                      // Increase pot by 1
+                if (indexOf(players, tmpLoser) == -1){
+                    current = getRandomPlayer(players);     // Set a random person as current
+                } else {
+                    current = tmpLoser;                     // Sets loser as current
+                }
+                players = clearRoundResults(players);       // Clears the rolls of the players
+                leader = current;                           
                 // ----- Out --------------------
                 out.println("Round done " + tmpLoser.name + " lost!");
                 out.println("Next to roll is " + current.name);
@@ -83,10 +91,10 @@ public class Mexico {
     int indexOf(Player[] players, Player player) {
         for (int i = 0; i < players.length; i++) {
             if (players[i] == player) {
-                return i;
+                return i;                           // If player is found, return index
             }
         }
-        return -1;
+        return -1;                                  // If player isn't found, return -1
     }
 
     Player getRandomPlayer(Player[] players) {
@@ -97,9 +105,9 @@ public class Mexico {
         int fst = player.fstDice;
         int snd = player.secDice;
         if ((fst==2 && snd == 1) || (fst==1 && snd==2)){
-            return mexico;
+            return mexico;                                  // if max value of dice is 21, return mexico
         } else if (fst==snd){
-            return ((fst*10 + snd)*10);
+            return ((fst*10 + snd)*10);                     // if double, return 10 times the amount
         } else if (fst*10 + snd > snd*10 + fst){
             return (fst*10 + snd);
         }
@@ -142,22 +150,19 @@ public class Mexico {
     }
 
     Player[] allRolled(Player[] players){
-        Player loser = getLoser(players);
-        loser.amount--;
-        out.println("" + loser.name + " " + loser.amount);
+        Player loser = getLoser(players);                   // Get who lost
+        loser.amount--;                                     // Lower their amount
         if (loser.amount == 0){
-            players = removeLoser(players, loser);
+            players = removeLoser(players, loser);          // If they have zero, remove them from the game
         } 
-        players = clearRoundResults(players);
         statusMsg(players);
         return players;
     }
     
-    Player rollDice(Player current){
+    void rollDice(Player current){
         current.nRolls++;
         current.fstDice = rand.nextInt(6) + 1;
         current.secDice = rand.nextInt(6) + 1;
-        return current;
     }
 
     // ---------- IO methods (nothing to do here) -----------------------
