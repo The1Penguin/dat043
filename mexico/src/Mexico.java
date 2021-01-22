@@ -64,18 +64,13 @@ public class Mexico {
             if (played == players.length) {
                 // --- Process -----
                 played = 0;                                 // Reset amount played
-                Player tmpLoser = getLoser(players);        // Gets who lost the round
                 players = allRolled(players);
                 pot++;                                      // Increase pot by 1
-                if (indexOf(players, tmpLoser) == -1){
-                    current = getRandomPlayer(players);     // Set a random person as current
-                } else {
-                    current = tmpLoser;                     // Sets loser as current
-                }
+                Player tmpLoser = getLoser(players);        // Gets who lost the round
+                current = tmpLoser;                         // Sets loser as current
                 players = clearRoundResults(players);       // Clears the rolls of the players
                 leader = current;                           
                 // ----- Out --------------------
-                out.println("Round done " + tmpLoser.name + " lost!");
                 out.println("Next to roll is " + current.name);
             }
         }
@@ -155,6 +150,7 @@ public class Mexico {
         if (loser.amount == 0){
             players = removeLoser(players, loser);          // If they have zero, remove them from the game
         } 
+        out.println("Round done " + loser.name + " lost!");
         statusMsg(players);
         return players;
     }
