@@ -54,7 +54,7 @@ public class Neighbours extends Application {
     // That's why we must have "@Override" and "public" (just accept for now)
     @Override
     public void init() {
-        // test();    // <---------------- Uncomment to TEST!
+        test();    // <---------------- Uncomment to TEST!
 
         // %-distribution of RED, BLUE and NONE
         double[] dist = {0.25, 0.25, 0.50};
@@ -73,13 +73,34 @@ public class Neighbours extends Application {
     // ---------------  Methods ------------------------------
 
     // TODO Many ...
+    
+    void isSatisfied(Actor[][] matr, int row, int col, double threshold){
+        int okay = 0;
+        int total = 0;
+        for (int i=row-1; row-1 <= i && i <= row+1; i++){
+            for (int k=col-1; col-1 <= k && k <= col+1; k++){
+                if (isValidLocation(matr.length, i, k) && matr[i][k] != null && !(i==row && k==col)){
+                    if(matr[i][k].color == matr[row][col].color){
+                        okay++;
+                    }
+                    total++;
+                }
+            }
+        }
+        if (((double)okay)/total >= threshold){
+            matr[row][col].isSatisfied = true;
+        } else {
+            matr[row][col].isSatisfied = false;
+        }
+    }
+
     Actor[] initialize(int size, double[] dist){
         Actor[] arr = new Actor[size];
         for (int i=0; i < (int)(size*dist[0]); i++){
-            arr[i] = new Actor(Color.BLUE);
+            arr[i] = new Actor(Color.RED);
         }
         for (int i=(int)round(size*dist[1]); i < (int)((dist[0]+dist[1])*size); i++){
-            arr[i] = new Actor(Color.RED);
+            arr[i] = new Actor(Color.BLUE);
         }
         return arr;
     }
@@ -131,6 +152,11 @@ public class Neighbours extends Application {
         out.println(isValidLocation(size, 0, 0));
         out.println(!isValidLocation(size, -1, 0));
         out.println(!isValidLocation(size, 0, 3));
+        
+        isSatisfied(testWorld, 0, 0, 0.5);
+        out.println(testWorld[0][0].isSatisfied == true);
+        isSatisfied(testWorld, 2, 2, 0.5);
+        out.println(testWorld[2][2].isSatisfied == true);
 
         // TODO
 
