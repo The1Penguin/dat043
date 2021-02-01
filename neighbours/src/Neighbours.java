@@ -38,6 +38,7 @@ public class Neighbours extends Application {
     // Below is the *only* accepted instance variable (i.e. variables outside any method)
     // This variable may *only* be used in methods init() and updateWorld()
     Actor[][] world;              // The world is a square matrix of Actors
+    final Random rand = new Random();
 
     // This is the method called by the timer to update the world
     // (i.e move unsatisfied) approx each 1/60 sec.
@@ -53,7 +54,7 @@ public class Neighbours extends Application {
     // That's why we must have "@Override" and "public" (just accept for now)
     @Override
     public void init() {
-        test();    // <---------------- Uncomment to TEST!
+        // test();    // <---------------- Uncomment to TEST!
 
         // %-distribution of RED, BLUE and NONE
         double[] dist = {0.25, 0.25, 0.50};
@@ -61,7 +62,10 @@ public class Neighbours extends Application {
         int nLocations = 900;   // Should also try 90 000
 
         // TODO initialize the world
-
+        Actor[] worldArr = initialize(nLocations, dist);
+        shuffle(worldArr);
+        world = toMatrix(worldArr);
+        
         // Should be last
         fixScreenSize(nLocations);
     }
@@ -69,6 +73,37 @@ public class Neighbours extends Application {
     // ---------------  Methods ------------------------------
 
     // TODO Many ...
+    Actor[] initialize(int size, double[] dist){
+        Actor[] arr = new Actor[size];
+        for (int i=0; i < (int)(size*dist[0]); i++){
+            arr[i] = new Actor(Color.BLUE);
+        }
+        for (int i=(int)round(size*dist[1]); i < (int)((dist[0]+dist[1])*size); i++){
+            arr[i] = new Actor(Color.RED);
+        }
+        return arr;
+    }
+    
+    void shuffle(Actor[] arr){
+        for (int i = arr.length; i > 1; i--){
+            int j = rand.nextInt(i);
+            Actor tmp = arr[j];
+            arr[j] = arr[i-1];
+            arr[i - 1] = tmp;
+        }
+    }
+
+    Actor[][] toMatrix(Actor[] arr){
+        Actor[][] matr = new Actor[(int)sqrt(arr.length)][(int)sqrt(arr.length)];
+        int row = 0;
+        for (int i=0; i < arr.length; i++){
+            matr[row][i%(int)sqrt(arr.length)] = arr[i];
+            if (i % (int)sqrt(arr.length) == (int)sqrt(arr.length)-1){
+                row++;
+            }
+        }
+        return matr;
+    }
 
     // Check if inside world
     boolean isValidLocation(int size, int row, int col) {
