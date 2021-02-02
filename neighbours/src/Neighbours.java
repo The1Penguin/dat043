@@ -46,6 +46,15 @@ public class Neighbours extends Application {
         // % of surrounding neighbours that are like me
         double threshold = 0.7;
 
+        for (int row=0; row < world.length; row++){
+            for (int col=0; col < world[row].length; col++){
+                isSatisfied(world, row, col, threshold);
+            }
+        }
+        int[] indexOfNulls = indexForNulls(world);
+        shuffle(indexOfNulls);
+        swap(indexOfNulls, world);
+
         // TODO update world
     }
 
@@ -54,7 +63,7 @@ public class Neighbours extends Application {
     // That's why we must have "@Override" and "public" (just accept for now)
     @Override
     public void init() {
-        test();    // <---------------- Uncomment to TEST!
+        // test();    // <---------------- Uncomment to TEST!
 
         // %-distribution of RED, BLUE and NONE
         double[] dist = {0.25, 0.25, 0.50};
@@ -73,10 +82,28 @@ public class Neighbours extends Application {
     // ---------------  Methods ------------------------------
 
     // TODO Many ...
-    
+
+
+    void swap(int[] nullLocations, Actor[][] matr){
+     int i = 0;
+        for (int row=0; row < matr.length; row++){
+            for (int col=0; col < matr[row].length; col++){
+                if(world[row][col] != null && matr[row][col].isSatisfied == false){
+                    int x = nullLocations[i] % matr.length;
+                    int y = (nullLocations[i] - nullLocations[0] % matr.length) / matr.length;
+                    matr[y][x] = matr[row][col];
+                    matr[row][col] = null;
+                    i++;
+                }
+            }
+        }   
+    }
     void isSatisfied(Actor[][] matr, int row, int col, double threshold){
         int okay = 0;
         int total = 0;
+        if (matr[row][col] == null){
+            return;
+        }
         for (int i=row-1; row-1 <= i && i <= row+1; i++){
             for (int k=col-1; col-1 <= k && k <= col+1; k++){
                 if (isValidLocation(matr.length, i, k) && matr[i][k] != null && !(i==row && k==col)){
@@ -93,6 +120,19 @@ public class Neighbours extends Application {
             matr[row][col].isSatisfied = false;
         }
     }
+    
+    int[] indexForNulls(Actor[][] matr){
+        int[] arr = new int[0];
+        for (int row=0; row < matr.length; row++){
+            for (int col=0; col < matr[row].length; col++){
+                if (matr[row][col] == null){
+                    arr = new int[arr.length + 1];
+                    arr[arr.length-1] = row*matr.length+col;
+                }
+            }
+        }
+        return arr;
+    }
 
     Actor[] initialize(int size, double[] dist){
         Actor[] arr = new Actor[size];
@@ -105,10 +145,19 @@ public class Neighbours extends Application {
         return arr;
     }
     
-    void shuffle(Actor[] arr){
+    <T> void shuffle(T[] arr){
         for (int i = arr.length; i > 1; i--){
             int j = rand.nextInt(i);
-            Actor tmp = arr[j];
+            T tmp = arr[j];
+            arr[j] = arr[i-1];
+            arr[i - 1] = tmp;
+        }
+    }
+
+    void shuffle(int[] arr){
+        for (int i = arr.length; i > 1; i--){
+            int j = rand.nextInt(i);
+            int tmp = arr[j];
             arr[j] = arr[i-1];
             arr[i - 1] = tmp;
         }
