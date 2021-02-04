@@ -45,17 +45,10 @@ public class Neighbours extends Application {
     void updateWorld() {
         // % of surrounding neighbours that are like me
         double threshold = 0.7;
-
-        for (int row=0; row < world.length; row++){
-            for (int col=0; col < world[row].length; col++){
-                isSatisfied(world, row, col, threshold);
-            }
-        }
-        int[] indexOfNulls = indexForNulls(world);
+        int[][] indexOfNulls = checkWorld(world, threshold);
         shuffle(indexOfNulls);
         swap(indexOfNulls, world);
-
-        // TODO update world
+        
     }
 
     // This method initializes the world variable with a random distribution of Actors
@@ -68,9 +61,8 @@ public class Neighbours extends Application {
         // %-distribution of RED, BLUE and NONE
         double[] dist = {0.25, 0.25, 0.50};
         // Number of locations (places) in world (must be a square)
-        int nLocations = 900;   // Should also try 90 000
+        int nLocations = 90000;   // Should also try 90 000
 
-        // TODO initialize the world
         Actor[] worldArr = initialize(nLocations, dist);
         shuffle(worldArr);
         world = toMatrix(worldArr);
@@ -81,23 +73,22 @@ public class Neighbours extends Application {
 
     // ---------------  Methods ------------------------------
 
-    // TODO Many ...
-
-
-    void swap(int[] nullLocations, Actor[][] matr){
-     int i = 0;
+    void swap(int[][] nullLocations, Actor[][] matr){
+        int i = 0;
         for (int row=0; row < matr.length; row++){
             for (int col=0; col < matr[row].length; col++){
                 if(world[row][col] != null && matr[row][col].isSatisfied == false){
-                    int x = nullLocations[i] % matr.length;
-                    int y = (nullLocations[i] - nullLocations[0] % matr.length) / matr.length;
+                    int y = nullLocations[i][0];
+                    int x = nullLocations[i][1];
+                    Actor tmp = matr[y][x];
                     matr[y][x] = matr[row][col];
-                    matr[row][col] = null;
+                    matr[row][col] = tmp;
                     i++;
                 }
             }
         }   
     }
+
     void isSatisfied(Actor[][] matr, int row, int col, double threshold){
         int okay = 0;
         int total = 0;
@@ -114,20 +105,25 @@ public class Neighbours extends Application {
                 }
             }
         }
-        if (((double)okay)/total >= threshold){
+       if (total == 0 || ((double)okay)/total >= threshold){
             matr[row][col].isSatisfied = true;
         } else {
             matr[row][col].isSatisfied = false;
         }
     }
     
-    int[] indexForNulls(Actor[][] matr){
-        int[] arr = new int[0];
+    int[][] checkWorld(Actor[][] matr, double threshold){
+        int[][] arr = new int[0][2];
         for (int row=0; row < matr.length; row++){
             for (int col=0; col < matr[row].length; col++){
                 if (matr[row][col] == null){
-                    arr = new int[arr.length + 1];
-                    arr[arr.length-1] = row*matr.length+col;
+                    int[][] tmp = arr;
+                    arr = new int[arr.length + 1][2];
+                    arraycopy(tmp, 0, arr, 0, tmp.length);
+                    int[] tmparr = {row, col};
+                    arr[arr.length-1] = tmparr;
+                } else {
+                    isSatisfied(matr, row, col, threshold);
                 }
             }
         }
@@ -145,24 +141,6 @@ public class Neighbours extends Application {
         return arr;
     }
     
-    <T> void shuffle(T[] arr){
-        for (int i = arr.length; i > 1; i--){
-            int j = rand.nextInt(i);
-            T tmp = arr[j];
-            arr[j] = arr[i-1];
-            arr[i - 1] = tmp;
-        }
-    }
-
-    void shuffle(int[] arr){
-        for (int i = arr.length; i > 1; i--){
-            int j = rand.nextInt(i);
-            int tmp = arr[j];
-            arr[j] = arr[i-1];
-            arr[i - 1] = tmp;
-        }
-    }
-
     Actor[][] toMatrix(Actor[] arr){
         Actor[][] matr = new Actor[(int)sqrt(arr.length)][(int)sqrt(arr.length)];
         int row = 0;
@@ -183,6 +161,14 @@ public class Neighbours extends Application {
     // ----------- Utility methods -----------------
 
     // TODO (general method possible reusable elsewhere)
+    <T> void shuffle(T[] arr){
+        for (int i = arr.length; i > 1; i--){
+            int j = rand.nextInt(i);
+            T tmp = arr[j];
+            arr[j] = arr[i-1];
+            arr[i - 1] = tmp;
+        }
+    }
 
     // ------- Testing -------------------------------------
 
@@ -207,8 +193,6 @@ public class Neighbours extends Application {
         isSatisfied(testWorld, 2, 2, 0.5);
         out.println(testWorld[2][2].isSatisfied == true);
 
-        // TODO
-
         exit(0);
     }
 
@@ -230,7 +214,7 @@ public class Neighbours extends Application {
     }
 
     long lastUpdateTime;
-    final long INTERVAL = 450_000_000;
+    final long INTERVAL = 450_000_00;
 
 
     @Override
