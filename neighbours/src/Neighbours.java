@@ -39,6 +39,7 @@ public class Neighbours extends Application {
     // This variable may *only* be used in methods init() and updateWorld()
     Actor[][] world;              // The world is a square matrix of Actors
     final Random rand = new Random();
+    double[] dist = {0.25, 0.25, 0.50};
 
     // This is the method called by the timer to update the world
     // (i.e move unsatisfied) approx each 1/60 sec.
@@ -59,7 +60,6 @@ public class Neighbours extends Application {
         // test();    // <---------------- Uncomment to TEST!
         
         // %-distribution of RED, BLUE and NONE
-        double[] dist = {0.25, 0.25, 0.50};
         // Number of locations (places) in world (must be a square)
         int nLocations = 90000;   // Should also try 90 000
 
@@ -113,10 +113,8 @@ public class Neighbours extends Application {
         }
     }
     
-    // Very slow function
-
     int[][] checkWorld(Actor[][] matr, double threshold){
-        int amountOfNulls = (int)((double)(matr.length * matr.length)/2);
+        int amountOfNulls = (int)((double)(matr.length * matr.length)*dist[2]);
         int[][] arr = new int[amountOfNulls][2];
         int i = 0;
         for (int row=0; row < matr.length; row++){
