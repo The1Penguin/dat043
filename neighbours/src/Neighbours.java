@@ -66,7 +66,7 @@ public class Neighbours extends Application {
         Actor[] worldArr = initialize(nLocations, dist);
         shuffle(worldArr);
         world = toMatrix(worldArr);
-        
+
         // Should be last
         fixScreenSize(nLocations);
     }
@@ -83,7 +83,9 @@ public class Neighbours extends Application {
                     Actor tmp = matr[y][x];
                     matr[y][x] = matr[row][col];
                     matr[row][col] = tmp;
-                    i++;
+                    if (i < nullLocations.length -1){
+                        i++;
+                    }
                 }
             }
         }   
@@ -112,6 +114,8 @@ public class Neighbours extends Application {
         }
     }
     
+    // Very slow function
+
     int[][] checkWorld(Actor[][] matr, double threshold){
         int[][] arr = new int[0][2];
         for (int row=0; row < matr.length; row++){
@@ -142,11 +146,12 @@ public class Neighbours extends Application {
     }
     
     Actor[][] toMatrix(Actor[] arr){
-        Actor[][] matr = new Actor[(int)sqrt(arr.length)][(int)sqrt(arr.length)];
+        int size = (int)sqrt(arr.length);
+        Actor[][] matr = new Actor[size][size];
         int row = 0;
         for (int i=0; i < arr.length; i++){
-            matr[row][i%(int)sqrt(arr.length)] = arr[i];
-            if (i % (int)sqrt(arr.length) == (int)sqrt(arr.length)-1){
+            matr[row][i % size] = arr[i];
+            if (i % size == size - 1){
                 row++;
             }
         }
@@ -214,7 +219,7 @@ public class Neighbours extends Application {
     }
 
     long lastUpdateTime;
-    final long INTERVAL = 450_000_00;
+    final long INTERVAL = 450_000_000;
 
 
     @Override
