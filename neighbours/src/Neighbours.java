@@ -61,7 +61,7 @@ public class Neighbours extends Application {
         // %-distribution of RED, BLUE and NONE
         double[] dist = {0.25, 0.25, 0.50};
         // Number of locations (places) in world (must be a square)
-        int nLocations = 90000;   // Should also try 90 000
+        int nLocations = 900;   // Should also try 90 000
 
         Actor[] worldArr = initialize(nLocations, dist);
         shuffle(worldArr);
@@ -83,9 +83,8 @@ public class Neighbours extends Application {
                     Actor tmp = matr[y][x];
                     matr[y][x] = matr[row][col];
                     matr[row][col] = tmp;
-                    if (i < nullLocations.length -1){
-                        i++;
-                    }
+                    matr[y][x].isSatisfied = true;
+                    i++;
                 }
             }
         }   
