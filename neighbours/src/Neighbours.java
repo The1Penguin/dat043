@@ -61,7 +61,7 @@ public class Neighbours extends Application {
         // %-distribution of RED, BLUE and NONE
         double[] dist = {0.25, 0.25, 0.50};
         // Number of locations (places) in world (must be a square)
-        int nLocations = 900;   // Should also try 90 000
+        int nLocations = 90000;   // Should also try 90 000
 
         Actor[] worldArr = initialize(nLocations, dist);
         shuffle(worldArr);
@@ -116,15 +116,21 @@ public class Neighbours extends Application {
     // Very slow function
 
     int[][] checkWorld(Actor[][] matr, double threshold){
-        int[][] arr = new int[0][2];
+        int amountOfNulls = (int)((double)(matr.length * matr.length)/2);
+        int[][] arr = new int[amountOfNulls][2];
+        int i = 0;
         for (int row=0; row < matr.length; row++){
             for (int col=0; col < matr[row].length; col++){
                 if (matr[row][col] == null){
+                    int[] tmparr = {row, col};
+                    arr[i] = tmparr;
+                    i++;
+                    /*
                     int[][] tmp = arr;
                     arr = new int[arr.length + 1][2];
                     arraycopy(tmp, 0, arr, 0, tmp.length);
-                    int[] tmparr = {row, col};
                     arr[arr.length-1] = tmparr;
+                    */
                 } else {
                     isSatisfied(matr, row, col, threshold);
                 }
