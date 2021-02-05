@@ -57,7 +57,7 @@ public class Neighbours extends Application {
     @Override
     public void init() {
         // test();    // <---------------- Uncomment to TEST!
-
+        //test there
         // %-distribution of RED, BLUE and NONE
         double[] dist = {0.25, 0.25, 0.50};
         // Number of locations (places) in world (must be a square)
