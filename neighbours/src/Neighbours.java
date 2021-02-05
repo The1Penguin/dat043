@@ -125,12 +125,6 @@ public class Neighbours extends Application {
                     int[] tmparr = {row, col};
                     arr[i] = tmparr;
                     i++;
-                    /*
-                    int[][] tmp = arr;
-                    arr = new int[arr.length + 1][2];
-                    arraycopy(tmp, 0, arr, 0, tmp.length);
-                    arr[arr.length-1] = tmparr;
-                    */
                 } else {
                     isSatisfied(matr, row, col, threshold);
                 }
