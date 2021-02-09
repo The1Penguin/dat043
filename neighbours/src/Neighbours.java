@@ -39,17 +39,19 @@ public class Neighbours extends Application {
     // This variable may *only* be used in methods init() and updateWorld()
     Actor[][] world;              // The world is a square matrix of Actors
     final Random rand = new Random();
+    // %-distribution of RED, BLUE and NONE
     double[] dist = {0.25, 0.25, 0.50};
 
     // This is the method called by the timer to update the world
     // (i.e move unsatisfied) approx each 1/60 sec.
     void updateWorld() {
+        long start = System.currentTimeMillis();
         // % of surrounding neighbours that are like me
         double threshold = 0.7;
         int[][] indexOfNulls = checkWorld(world, threshold);
         shuffle(indexOfNulls);
         swap(indexOfNulls, world);
-        
+        long end = System.currentTimeMillis();
     }
 
     // This method initializes the world variable with a random distribution of Actors
@@ -58,15 +60,11 @@ public class Neighbours extends Application {
     @Override
     public void init() {
         // test();    // <---------------- Uncomment to TEST!
-        
-        // %-distribution of RED, BLUE and NONE
         // Number of locations (places) in world (must be a square)
-        int nLocations = 90000;   // Should also try 90 000
-
+        int nLocations = 90_000;   // Should also try 90 000
         Actor[] worldArr = initialize(nLocations, dist);
         shuffle(worldArr);
         world = toMatrix(worldArr);
-
         // Should be last
         fixScreenSize(nLocations);
     }
