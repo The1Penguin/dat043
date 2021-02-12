@@ -67,6 +67,9 @@ public class Calculator {
     List<String> infix2Postfix(List<String> infix) {
         List<String> postfix = new ArrayList<String>();
         Deque<String> stack = new ArrayDeque<String>();
+        for (String i : infix.toArray()){
+            
+        }
         return null;
     }
 
