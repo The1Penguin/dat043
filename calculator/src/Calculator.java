@@ -38,9 +38,27 @@ public class Calculator {
     // ------  Evaluate RPN expression -------------------
 
     double evalPostfix(List<String> postfix) {
-        
+        Deque<String> stack = new ArrayDeque<String>();
+        for (String i : postfix) {
+            if (!isOperator(i)){
+                stack.push(i);
 
-        return 0;
+            } else {
+                if (stack.size() >= 2){
+                    double a = Double.valueOf(stack.pop());
+                    double b = Double.valueOf(stack.pop());
+                    stack.push(String.valueOf(applyOperator(i, a, b)));
+                } else {
+                    throw new IllegalArgumentException(MISSING_OPERAND);
+                }
+            }
+        }
+
+        if (stack.size() > 1){
+            throw new IllegalArgumentException(MISSING_OPERATOR);
+        }
+
+        return Double.valueOf(stack.pop());
     }
 
     double applyOperator(String op, double d1, double d2) {
@@ -75,6 +93,9 @@ public class Calculator {
             } else if (")".equals(i)) {
                 String popped;
                 while (true) {
+                    if (stack.isEmpty()){
+                        throw new IllegalArgumentException(MISSING_OPERATOR);
+                    }
                     popped = stack.pop();
                     if ("(".equals(popped)){
                         break;
@@ -101,6 +122,10 @@ public class Calculator {
                 stack.push(i);
             } 
         }
+        if (stack.contains("(") && !stack.contains(")")){
+            throw new IllegalArgumentException(MISSING_OPERATOR);
+        }
+
         while (!stack.isEmpty()){
             postfix.add(stack.pop());
         }
@@ -141,7 +166,6 @@ public class Calculator {
     List<String> tokenize(String expr) {
         List<String> tmp = new ArrayList<String>();
         StringBuilder sb = new StringBuilder();
-        expr = expr.replaceAll("\\s+", "");
         for (char c : expr.toCharArray()){
             if (isOperator(String.valueOf(c))) {
                 if (!sb.isEmpty()){
@@ -149,6 +173,11 @@ public class Calculator {
                     sb.setLength(0);
                 }
                 tmp.add(String.valueOf(c));
+            } else if (c==' ') {
+                if (!sb.isEmpty()){
+                    tmp.add(sb.toString());
+                    sb.setLength(0);
+                }
             } else {
                 sb.append(c);
             }

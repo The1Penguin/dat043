@@ -2,12 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c617dab2-35cc-46c2-95b1-2b7ab54515a5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../common/lect/lectweek6/src/ex1inheritance/I6InstanceOfGetClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../common/lect/lectweek6/src/ex1inheritance/I6InstanceofGetClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../common/lect/lectweek6/src/ex7oomodels/catchtherain/CatchTheRain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../common/lect/lectweek6/src/ex7oomodels/catchtherain/CatchTheRain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../common/xer/OUT/xerweek5/src/ex4hangman/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../common/xer/OUT/xerweek5/src/ex4hangman/CLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../common/xer/OUT/xerweek5/src/ex4hangman/HangMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../common/xer/OUT/xerweek5/src/ex4hangman/HangMan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../common/xer/xerweek6/src/exercises6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../common/xer/xerweek6/src/exercises6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../exam/e20210113/src/Exam210113.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exam/e20210113/src/Exam210113.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/calculator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/calculator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/Calculator$Assoc.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/Calculator$Assoc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/Calculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/Calculator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../neighbours/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../neighbours/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../neighbours/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../neighbours/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../neighbours/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../neighbours/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../neighbours/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../neighbours/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../neighbours/neighbours.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../neighbours/neighbours.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,21 +28,23 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1hr9WYaU1lxVDWkUOl85FL8g5dI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/.javafx/lib" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -101,6 +112,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -114,34 +126,27 @@
     </task>
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="1811" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607069219644">
-      <screen x="1680" y="0" width="1280" height="1024" />
-    </state>
-    <state x="1811" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050/1680.0.1280.1024@1680.0.1280.1024" timestamp="1607069219644" />
-    <state x="2133" y="299" width="426" height="480" key="FileChooserDialogImpl" timestamp="1607414469355">
-      <screen x="1680" y="0" width="1280" height="1024" />
-    </state>
-    <state x="2133" y="299" width="426" height="480" key="FileChooserDialogImpl/0.0.1680.1050/1680.0.1280.1024@1680.0.1280.1024" timestamp="1607414469355" />
-    <state width="1179" height="168" key="GridCell.Tab.0.bottom" timestamp="1609932995225">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1179" height="168" key="GridCell.Tab.0.bottom/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609932995225" />
-    <state width="1179" height="168" key="GridCell.Tab.0.center" timestamp="1609932995225">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1179" height="168" key="GridCell.Tab.0.center/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609932995225" />
-    <state width="1179" height="168" key="GridCell.Tab.0.left" timestamp="1609932995225">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1179" height="168" key="GridCell.Tab.0.left/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609932995225" />
-    <state width="1179" height="168" key="GridCell.Tab.0.right" timestamp="1609932995225">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="1179" height="168" key="GridCell.Tab.0.right/0.0.1680.1050/1680.0.1280.1024@0.0.1680.1050" timestamp="1609932995225" />
-    <state x="1905" y="123" width="1026" height="841" key="SettingsEditor" timestamp="1607006660427">
-      <screen x="1680" y="0" width="1280" height="1024" />
-    </state>
-    <state x="1905" y="123" key="SettingsEditor/0.0.1680.1050/1680.0.1280.1024@1680.0.1280.1024" timestamp="1607006660427" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Test.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
