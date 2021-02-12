@@ -38,7 +38,8 @@ public class Calculator {
     // ------  Evaluate RPN expression -------------------
 
     double evalPostfix(List<String> postfix) {
-        // TODO
+        
+
         return 0;
     }
 
@@ -64,7 +65,8 @@ public class Calculator {
     // ------- Infix 2 Postfix ------------------------
 
     List<String> infix2Postfix(List<String> infix) {
-        // TODO
+        List<String> postfix = new ArrayList<String>();
+        Deque<String> stack = new ArrayDeque<String>();
         return null;
     }
 
@@ -103,66 +105,15 @@ public class Calculator {
         StringBuilder sb = new StringBuilder();
         expr = expr.replaceAll("\\s+", "");
         for (char c : expr.toCharArray()){
-            switch (c){
+            if (isOperator(c)) {
 
-                case ('('):
-                    if (!sb.isEmpty()){
-                        tmp.add(sb.toString());
-                        sb.setLength(0);
-                    }
-                    tmp.add("(");
-                    break;
-
-                case (')'):
-                    if (!sb.isEmpty()){
-                        tmp.add(sb.toString());
-                        sb.setLength(0);
-                    }
-                    tmp.add(")");
-                    break;
-                
-                case ('+'):
-                    if (!sb.isEmpty()){
-                        tmp.add(sb.toString());
-                        sb.setLength(0);
-                    }
-                    tmp.add("+");
-                    break;
-
-                case ('-'):
-                    if (!sb.isEmpty()){
-                        tmp.add(sb.toString());
-                        sb.setLength(0);
-                    }
-                    tmp.add("-");
-                    break;
-
-                case ('/'):
-                    if (!sb.isEmpty()){
-                        tmp.add(sb.toString());
-                        sb.setLength(0);
-                    }
-                    tmp.add("/");
-                    break;
-                
-                case ('*'):
-                    if (!sb.isEmpty()){
-                        tmp.add(sb.toString());
-                        sb.setLength(0);
-                    }
-                    tmp.add("*");
-                    break;
-                
-                case ('^'):
-                    if (!sb.isEmpty()){
-                        tmp.add(sb.toString());
-                        sb.setLength(0);
-                    }
-                    tmp.add("^");
-                    break;
-
-                default:
-                    sb.append(c);
+                if (!sb.isEmpty()){
+                    tmp.add(sb.toString());
+                    sb.setLength(0);
+                }
+                tmp.add(String.valueOf(c));
+            } else {
+                sb.append(c);
             }
         }
         if (!sb.isEmpty()){
@@ -171,4 +122,7 @@ public class Calculator {
         return tmp;
     }
 
+    boolean isOperator(char c){
+        return c=='(' || c==')' || c=='+' || c=='-' || c=='*' || c=='/' || c=='^';
+    }
 }
