@@ -99,8 +99,76 @@ public class Calculator {
 
     // List String (not char) because numbers (with many chars)
     List<String> tokenize(String expr) {
-       // TODO
-        return null;
+        List<String> tmp = new ArrayList<String>();
+        StringBuilder sb = new StringBuilder();
+        expr = expr.replaceAll("\\s+", "");
+        for (char c : expr.toCharArray()){
+            switch (c){
+
+                case ('('):
+                    if (!sb.isEmpty()){
+                        tmp.add(sb.toString());
+                        sb.setLength(0);
+                    }
+                    tmp.add("(");
+                    break;
+
+                case (')'):
+                    if (!sb.isEmpty()){
+                        tmp.add(sb.toString());
+                        sb.setLength(0);
+                    }
+                    tmp.add(")");
+                    break;
+                
+                case ('+'):
+                    if (!sb.isEmpty()){
+                        tmp.add(sb.toString());
+                        sb.setLength(0);
+                    }
+                    tmp.add("+");
+                    break;
+
+                case ('-'):
+                    if (!sb.isEmpty()){
+                        tmp.add(sb.toString());
+                        sb.setLength(0);
+                    }
+                    tmp.add("-");
+                    break;
+
+                case ('/'):
+                    if (!sb.isEmpty()){
+                        tmp.add(sb.toString());
+                        sb.setLength(0);
+                    }
+                    tmp.add("/");
+                    break;
+                
+                case ('*'):
+                    if (!sb.isEmpty()){
+                        tmp.add(sb.toString());
+                        sb.setLength(0);
+                    }
+                    tmp.add("*");
+                    break;
+                
+                case ('^'):
+                    if (!sb.isEmpty()){
+                        tmp.add(sb.toString());
+                        sb.setLength(0);
+                    }
+                    tmp.add("^");
+                    break;
+
+                default:
+                    sb.append(c);
+            }
+        }
+        if (!sb.isEmpty()){
+            tmp.add(sb.toString());
+        }
+        return tmp;
     }
 
 }
