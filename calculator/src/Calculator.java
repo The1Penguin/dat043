@@ -67,10 +67,45 @@ public class Calculator {
     List<String> infix2Postfix(List<String> infix) {
         List<String> postfix = new ArrayList<String>();
         Deque<String> stack = new ArrayDeque<String>();
-        for (String i : infix.toArray()){
-            
+        for (String i : infix) {
+            if (!isOperator(i)) {
+                postfix.add(i);
+            } else if ("(".equals(i)) {
+                stack.push(i);
+            } else if (")".equals(i)) {
+                String popped;
+                while (true) {
+                    popped = stack.pop();
+                    if ("(".equals(popped)){
+                        break;
+                    } else {
+                        postfix.add(popped);
+                    }
+                }
+            } else if (stack.isEmpty() || stack.peek().equals("(")){ 
+                stack.push(i);
+            } else if (getPrecedence(i) > getPrecedence(stack.peek())) {
+                stack.push(i);
+            } else if (getPrecedence(i) == getPrecedence(stack.peek())) {
+                if (getAssociativity(i) == Assoc.LEFT) {
+                    postfix.add(stack.pop());
+                }
+                stack.push(i);
+            } else {
+                while (!stack.isEmpty() || getPrecedence(i) < getPrecedence(stack.peek())){
+                    postfix.add(stack.pop());
+                    if (stack.isEmpty()){
+                        break;
+                    }
+                }
+                stack.push(i);
+            } 
         }
-        return null;
+        while (!stack.isEmpty()){
+            postfix.add(stack.pop());
+        }
+        return postfix;
+
     }
 
     int getPrecedence(String op) {
@@ -108,8 +143,7 @@ public class Calculator {
         StringBuilder sb = new StringBuilder();
         expr = expr.replaceAll("\\s+", "");
         for (char c : expr.toCharArray()){
-            if (isOperator(c)) {
-
+            if (isOperator(String.valueOf(c))) {
                 if (!sb.isEmpty()){
                     tmp.add(sb.toString());
                     sb.setLength(0);
@@ -125,7 +159,7 @@ public class Calculator {
         return tmp;
     }
 
-    boolean isOperator(char c){
-        return c=='(' || c==')' || c=='+' || c=='-' || c=='*' || c=='/' || c=='^';
+    boolean isOperator(String c){
+        return "()+-*/^)".contains(c);
     }
 }
