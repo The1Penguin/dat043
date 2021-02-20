@@ -25,15 +25,18 @@ import static java.net.HttpURLConnection.HTTP_OK;
 public class WebCalcServer {
 
     public static void main(String[] args) throws IOException {
-        new WebCalcServer().run();
+        int port = 8080;
+        if (args.length == 1){
+            port = Integer.valueOf(args[0]);
+        }             
+        new WebCalcServer().run(port);
     }
 
-    public final int DEFAULT_PORT = 8080;
     public final String HOME_URL = "/";
     private final Calculator calc = new Calculator();
 
-    private void run() throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(DEFAULT_PORT), 0);
+    private void run(int port) throws IOException {
+        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         HttpContext context = server.createContext(HOME_URL);
         context.setHandler(this::handleRequest);
         server.start();
