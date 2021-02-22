@@ -91,18 +91,7 @@ public class Calculator {
             } else if ("(".equals(i)) {
                 stack.push(i);
             } else if (")".equals(i)) {
-                String popped;
-                while (true) {
-                    if (stack.isEmpty()){
-                        throw new IllegalArgumentException(MISSING_OPERATOR);
-                    }
-                    popped = stack.pop();
-                    if ("(".equals(popped)){
-                        break;
-                    } else {
-                        postfix.add(popped);
-                    }
-                }
+                postfix.addAll(emptyStack(stack));
             } else if (stack.isEmpty() || stack.peek().equals("(")){ 
                 stack.push(i);
             } else if (getPrecedence(i) > getPrecedence(stack.peek())) {
@@ -113,13 +102,7 @@ public class Calculator {
                 }
                 stack.push(i);
             } else {
-                while (!stack.isEmpty() || getPrecedence(i) < getPrecedence(stack.peek())){
-                    postfix.add(stack.pop());
-                    if (stack.isEmpty()){
-                        break;
-                    }
-                }
-                stack.push(i);
+                postfix.addAll(replaceTop(stack, i));
             } 
         }
         if (stack.contains("(") && !stack.contains(")")){
@@ -131,6 +114,35 @@ public class Calculator {
         }
         return postfix;
 
+    }
+
+    List<String> replaceTop(Deque<String> stack, String i){
+        List<String> postfix = new ArrayList<String>();
+        while (!stack.isEmpty() || getPrecedence(i) < getPrecedence(stack.peek())){
+            postfix.add(stack.pop());
+            if (stack.isEmpty()){
+                break;
+            }
+        }
+        stack.push(i);
+        return postfix;
+    }
+
+    List<String> emptyStack(Deque<String> stack){
+        List<String> postfix = new ArrayList<String>();
+        String popped;
+        while (true) {
+            if (stack.isEmpty()){
+                throw new IllegalArgumentException(MISSING_OPERATOR);
+            }
+            popped = stack.pop();
+            if ("(".equals(popped)){
+                break;
+            } else {
+                postfix.add(popped);
+            }
+        }
+        return postfix;
     }
 
     int getPrecedence(String op) {
