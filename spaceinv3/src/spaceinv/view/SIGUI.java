@@ -120,6 +120,7 @@ public class SIGUI extends Application implements EventHandler {
         // TODO Build model
 
         // NOTE: Declared at top of class
+        gun = new Gun();
         spaceInv = new SI(gun);
 
         renderBackground();

@@ -48,7 +48,7 @@ public class SI {
     private int points;
 
     // TODO Constructor here
-    public Si(Gun gun) {
+    public SI(Gun gun) {
         this.gun = gun;
     }
 
@@ -102,6 +102,7 @@ public class SI {
 
     public List<Positionable> getPositionables() {
         List<Positionable> ps = new ArrayList<>();
+        ps.add(gun);
         return ps;
     }
 

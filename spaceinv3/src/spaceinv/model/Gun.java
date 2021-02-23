@@ -8,26 +8,26 @@ import static spaceinv.model.SI.*;
  *    Can only fire one projectile at the time
  */
 public class Gun implements Positionable{
-    private double x;
-    private double y;
+    private final double width = GUN_WIDTH;
+    private final double height = GUN_HEIGHT;
+    private double x = (GAME_WIDTH - GUN_WIDTH) / 2;
+    private double y = GAME_HEIGHT - GUN_HEIGHT;
     private double dx;
     private double dy;
-    private double width;
-    private double height;
 
-    double getX(){
+    public double getX(){
         return x;
     }
 
-    double getY(){
+    public double getY(){
         return y;
     }
     
-    double getWidth(){
+    public double getWidth(){
         return width;
     }
 
-    double getHeight(){
+    public double getHeight(){
         return height;
     }
 }
