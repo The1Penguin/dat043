@@ -52,10 +52,10 @@ public class SIGUI extends Application implements EventHandler {
         KeyCode kc = event.getCode();
         switch (kc) {
             case LEFT:
-                gun.updateX(-1);
+                spaceInv.updateX(-1);
                 break;
             case RIGHT:
-                gun.updateX(1);
+                spaceInv.updateX(1);
                 break;
             case SPACE:
                 spaceInv.fireGun();
@@ -72,7 +72,7 @@ public class SIGUI extends Application implements EventHandler {
         switch (kc) {
             case LEFT:
             case RIGHT:
-                gun.updateX(0);
+                spaceInv.updateX(0);
                 break;
             default: // Nothing
         }

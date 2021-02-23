@@ -97,6 +97,11 @@ public class SI {
 
     public void fireGun() {
         // TODO
+        gun.fire();
+    }
+
+    public void updateX(int i){
+        gun.updateX(i);
     }
 
     // TODO More methods called by GUI
