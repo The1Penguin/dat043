@@ -41,13 +41,16 @@ public class SI {
     private static final Random rand = new Random();
 
     // TODO More references here
-    //private final Gun gun;
+    private final Gun gun;
 
     private final List<Projectile> shipBombs = new ArrayList<>();
     private Projectile gunProjectile;
     private int points;
 
     // TODO Constructor here
+    public Si(Gun gun) {
+        this.gun = gun;
+    }
 
 
     // Timing. All timing handled here!

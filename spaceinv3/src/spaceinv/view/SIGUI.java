@@ -41,6 +41,7 @@ public class SIGUI extends Application implements EventHandler {
 
     private SI spaceInv;                // Reference to the OO-model
     private boolean running = false;    // Is game running?
+    private Gun gun;
 
     // ------- Keyboard handling ----------------------------------
 
@@ -119,7 +120,7 @@ public class SIGUI extends Application implements EventHandler {
         // TODO Build model
 
         // NOTE: Declared at top of class
-        //spaceInv  =
+        spaceInv = new SI(gun);
 
         renderBackground();
         timer.start();
