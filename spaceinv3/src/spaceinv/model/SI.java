@@ -69,6 +69,7 @@ public class SI {
         /*
              Movement
          */
+        gun.move();
 
         /*
             Ships fire

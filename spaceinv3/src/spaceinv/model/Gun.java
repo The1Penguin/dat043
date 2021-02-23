@@ -30,4 +30,17 @@ public class Gun implements Positionable{
     public double getHeight(){
         return height;
     }
+    
+    public void updateX(int i){
+        dx = i*SHIP_MAX_DX;
+    }
+
+    public void move(){
+        if (dx != 0){
+            if (0 <= x+dx && x+dx <= GAME_WIDTH-SHIP_WIDTH){
+                x = x+dx;
+            }
+        }
+
+    }
 }
