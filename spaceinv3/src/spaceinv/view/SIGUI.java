@@ -116,13 +116,14 @@ public class SIGUI extends Application implements EventHandler {
         for (int i = LEFT_LIMIT + 1; i < nShips; i += 30) {
             ships.add(new Bomber(i, 110));
         }
-        
-
-        // TODO Build model
+        List<AbstractSpaceship> frigates = new ArrayList<>(ships.subList(0, 10));
+        List<AbstractSpaceship> battlecruisers = new ArrayList<>(ships.subList(11, 21));
+        List<AbstractSpaceship> bombers = new ArrayList<>(ships.subList(22, 33));
+        List<List<AbstractSpaceship>> formation = new ArrayList<>(List.of(frigates, battlecruisers, bombers));
 
         // NOTE: Declared at top of class
         gun = new Gun();
-        spaceInv = new SI(gun, ships);
+        spaceInv = new SI(gun, ships, formation);
 
         renderBackground();
         timer.start();

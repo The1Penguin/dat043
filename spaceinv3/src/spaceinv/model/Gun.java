@@ -12,13 +12,4 @@ public class Gun extends AbstractShooter{
     public Gun(){
         super(GUN_WIDTH, GUN_HEIGHT, (GAME_WIDTH - GUN_WIDTH) / 2, GAME_HEIGHT - GUN_HEIGHT, 0, 0);
     }
-
-    public void move(){
-        if (getdX() != 0){
-            setX(getX()+getdX());
-        }
-    }
-
-    
-
 }

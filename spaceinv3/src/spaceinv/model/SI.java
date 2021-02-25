@@ -48,14 +48,16 @@ public class SI {
     private final OuterSpace outer_space;
 
     private final List<Projectile> shipBombs = new ArrayList<>();
+    private final List<List<AbstractSpaceship>> formation;
     private Projectile gunProjectile;
     private int points;
 
-    public SI(Gun gun, List<AbstractSpaceship> ships) {
+    public SI(Gun gun, List<AbstractSpaceship> ships, List<List<AbstractSpaceship>> formation) {
         this.gun = gun;
         this.ground = new Ground();
         this.outer_space = new OuterSpace();
-        this. ships = ships;
+        this.ships = ships;
+        this.formation = formation;
     }
 
 
@@ -67,7 +69,6 @@ public class SI {
     // ------ Game loop (called by timer) -----------------
 
     public void update(long now) {
-
         if( ships.size() == 0){
             EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.HAS_WON));
         }
@@ -78,6 +79,10 @@ public class SI {
         if (!(hitRightLimit(gun) || hitLeftLimit(gun))){
             gun.move();
         }
+        
+        moveShip(now);
+
+
         
         /*
             Ships fire
@@ -96,7 +101,6 @@ public class SI {
 
     private boolean hitRightLimit(AbstractShooter obj) {
         if (obj.getX() + obj.getdX() > RIGHT_LIMIT){
-            obj.updateX(0, GUN_MAX_DX);
             return true;
         }
         return false;
@@ -104,10 +108,20 @@ public class SI {
 
     private boolean hitLeftLimit(AbstractShooter obj) {
         if (obj.getX() + obj.getdX() < LEFT_LIMIT){
-            obj.updateX(0, GUN_MAX_DX);
             return true;
         }
         return false;
+    }
+    public void moveShip(long now){
+        if (now - lastTimeForMove > HALF_SEC) {
+            AbstractSpaceship s = ships.get(shipToMove);
+            if (!(hitLeftLimit(s) || hitRightLimit(s))) {
+                s.move();
+            } else {
+                s.setdX(-1*s.getdX());
+            }
+            shipToMove = (shipToMove + 1) % ships.size();
+        }
     }
 
     public boolean collision(AbstractPositionable obj1, AbstractPositionable obj2){
