@@ -3,12 +3,14 @@ package spaceinv.model;
 import static spaceinv.model.SI.PROJECTILE_HEIGHT;
 import static spaceinv.model.SI.PROJECTILE_WIDTH;
 
+import javax.swing.text.Position;
+
 /*
        A projectile fired from the Gun or dropped by a spaceship
 
        TODO This class should later be refactored (and inherit most of what it needs)
  */
-public class Projectile  {
+public class Projectile implements Positionable {
 
 
     private double x;

@@ -76,7 +76,9 @@ public class SI {
         /*
             Ships fire
          */
-
+        if (gunProjectile != null){
+            gunProjectile.move();
+        }
 
         /*
              Collisions
@@ -104,8 +106,9 @@ public class SI {
     // ---------- Interaction with GUI  -------------------------
 
     public void fireGun() {
-        // TODO
-        gun.fire();
+        if (gunProjectile == null){
+            gunProjectile = gun.fire();
+        }
     }
 
     public void updateX(int i){
@@ -117,6 +120,9 @@ public class SI {
     public List<Positionable> getPositionables() {
         List<Positionable> ps = new ArrayList<>();
         ps.add(gun);
+        if (gunProjectile != null){
+        ps.add(gunProjectile);
+        }
         return ps;
     }
 

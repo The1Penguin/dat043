@@ -40,7 +40,7 @@ public class Gun implements Positionable, Shootable{
     }
     
     public void updateX(int i){
-        dx = i*SHIP_MAX_DX;
+        dx = i*GUN_MAX_DX;
     }
 
     public void move(){
@@ -51,7 +51,7 @@ public class Gun implements Positionable, Shootable{
 
     @Override
     public Projectile fire(){
-        return Shooter.fire(this, -1);
+        return Shooter.fire(this, 1);
     }
 
 }
