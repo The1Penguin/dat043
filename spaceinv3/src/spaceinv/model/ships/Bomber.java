@@ -9,7 +9,7 @@ public class Bomber extends AbstractSpaceship{
     public static final int BOMBER_POINTS = 200;
 
     public Bomber(double x, double y){
-        super(x, y);
+        super(x, y, BOMBER_POINTS);
     }
 
 }
