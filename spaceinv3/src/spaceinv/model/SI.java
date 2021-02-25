@@ -43,6 +43,8 @@ public class SI {
 
     // TODO More references here
     private final Gun gun;
+    private final Ground ground;
+    private final OuterSpace outer_space;
 
     private final List<Projectile> shipBombs = new ArrayList<>();
     private Projectile gunProjectile;
@@ -51,6 +53,9 @@ public class SI {
     // TODO Constructor here
     public SI(Gun gun) {
         this.gun = gun;
+        this.ground = new Ground();
+        this.outer_space = new OuterSpace();
+
     }
 
 
@@ -85,6 +90,7 @@ public class SI {
              Collisions
          */
 
+
     }
 
     private boolean shipHitRightLimit() {
@@ -114,6 +120,13 @@ public class SI {
 
     public void updateX(int i){
         gun.updateX(i);
+    }
+
+    public boolean collision(AbstractPositionable obj1, AbstractPositionable obj2){
+        return (obj1.getX() < obj2.getX() + obj2.getWidth() &&
+    obj1.getX() + obj1.getWidth() > obj2.getX() &&
+    obj1.getY() < obj2.getY() + obj2.getHeight() &&
+    obj1.getY() + obj1.getHeight() > obj2.getY());
     }
 
     // TODO More methods called by GUI

@@ -9,7 +9,7 @@ import static spaceinv.model.SI.*;
  */
 public class Ground extends AbstractPositionable {
     public Ground(){
-        super(GAME_WIDTH, OUTER_SPACE_HEIGHT, 0, GAME_HEIGHT - GAME_HEIGHT);
+        super(GAME_WIDTH, GROUND_HEIGHT, 0, GAME_HEIGHT - GAME_HEIGHT);
     }
 
 }

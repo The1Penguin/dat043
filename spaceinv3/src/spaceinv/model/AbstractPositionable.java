@@ -1,12 +1,7 @@
 package spaceinv.model;
 
-
 import static spaceinv.model.SI.*;
 
-/*
- *    A Gun for the game
- *    Can only fire one projectile at the time
- */
 public class AbstractPositionable implements Positionable{
     private final double width;
     private final double height;
