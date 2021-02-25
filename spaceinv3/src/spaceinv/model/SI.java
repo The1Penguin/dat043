@@ -42,7 +42,6 @@ public class SI {
 
     private static final Random rand = new Random();
 
-    // TODO More references here
     private final List<AbstractSpaceship> ships;
     private final Gun gun;
     private final Ground ground;
@@ -52,7 +51,6 @@ public class SI {
     private Projectile gunProjectile;
     private int points;
 
-    // TODO Constructor here
     public SI(Gun gun, List<AbstractSpaceship> ships) {
         this.gun = gun;
         this.ground = new Ground();
@@ -80,8 +78,6 @@ public class SI {
         if (!(hitRightLimit(gun) || hitLeftLimit(gun))){
             gun.move();
         }
-
-
         
         /*
             Ships fire
@@ -93,31 +89,8 @@ public class SI {
         /*
              Collisions
          */
-        if (gunProjectile != null){
-            List<AbstractSpaceship> toRemove = new ArrayList<>();
-            for ( AbstractSpaceship s : ships) {
-                if (collision(gunProjectile, s)) {
-                    toRemove.add(s);
-                    points += s.points;
-                }   
-            }
-            boolean removed = ships.removeAll(toRemove);
-            if (collision(gunProjectile, outer_space)){
-                removed = true;
-            }
-
-            if (removed){
-                gunProjectile = null;
-            }
-        }
-        List<Projectile> toRemove = new ArrayList<>();
-        for ( Projectile p : shipBombs ) {
-            if (collision(p, ground)) {
-                toRemove.add(p);
-            }
-        }
-        shipBombs.removeAll(toRemove);
-
+        checkGunShot();
+        checkBombs();
 
     }
 
@@ -143,7 +116,36 @@ public class SI {
     obj1.getY() < obj2.getY() + obj2.getHeight() &&
     obj1.getY() + obj1.getHeight() > obj2.getY());
     }
+    
+    public void checkGunShot(){
+        if (gunProjectile != null){
+            List<AbstractSpaceship> toRemove = new ArrayList<>();
+            for ( AbstractSpaceship s : ships) {
+                if (collision(gunProjectile, s)) {
+                    toRemove.add(s);
+                    points += s.points;
+                }   
+            }
+            boolean removed = ships.removeAll(toRemove);
+            if (collision(gunProjectile, outer_space)){
+                removed = true;
+            }
 
+            if (removed){
+                gunProjectile = null;
+            }
+        }
+    }
+    
+    public void checkBombs(){
+        List<Projectile> toRemove = new ArrayList<>();
+        for ( Projectile p : shipBombs ) {
+            if (collision(p, ground)) {
+                toRemove.add(p);
+            }
+        }
+        shipBombs.removeAll(toRemove);
+    }
 
     // ---------- Interaction with GUI  -------------------------
 
@@ -156,8 +158,6 @@ public class SI {
     public void updateX(int i){
         gun.updateX(i, GUN_MAX_DX);
     }
-    
-    // TODO More methods called by GUI
 
     public List<Positionable> getPositionables() {
         List<Positionable> ps = new ArrayList<>();
