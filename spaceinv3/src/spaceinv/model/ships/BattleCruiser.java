@@ -10,7 +10,6 @@ public class BattleCruiser extends AbstractShooter{
 
     // Default value
     public static final int BATTLE_CRUISER_POINTS = 100;
-    private int hitpoints = BATTLE_CRUISER_POINTS;
 
     BattleCruiser(double x, double y){
         super(SHIP_WIDTH, SHIP_HEIGHT, x, y, SHIP_MAX_DX, SHIP_MAX_DY);
