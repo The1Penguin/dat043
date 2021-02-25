@@ -32,9 +32,9 @@ public class SI {
     public static final double GUN_MAX_DX = 2;
     public static final double PROJECTILE_WIDTH = 5;
     public static final double PROJECTILE_HEIGHT = 5;
-    public static final double PROJECTILE_SPEED = 0.25;
+    public static final double PROJECTILE_SPEED = 2;
     public static final int GROUND_HEIGHT = 20;
-    public static final int OUTER_SPACE_HEIGHT = -1000;
+    public static final int OUTER_SPACE_HEIGHT = 10;
 
     public static final long ONE_SEC = 1_000_000_000;
     public static final long HALF_SEC = 500_000_000;
@@ -81,6 +81,7 @@ public class SI {
             gun.move();
         }
 
+
         
         /*
             Ships fire
@@ -109,6 +110,13 @@ public class SI {
                 gunProjectile = null;
             }
         }
+        List<Projectile> toRemove = new ArrayList<>();
+        for ( Projectile p : shipBombs ) {
+            if (collision(p, ground)) {
+                toRemove.add(p);
+            }
+        }
+        shipBombs.removeAll(toRemove);
 
 
     }

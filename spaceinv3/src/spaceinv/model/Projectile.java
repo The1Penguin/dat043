@@ -27,7 +27,7 @@ public class Projectile extends AbstractPositionable {
     //@Override
     public void move() {
         setY(getY() - getDy());
-        setDy(1.05 * getDy());  // Accelerate
+        setDy(1 * getDy());  // Accelerate
     }
 
     public double getDy() {
