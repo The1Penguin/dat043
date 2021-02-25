@@ -7,31 +7,22 @@ import static spaceinv.model.SI.*;
  *    A Gun for the game
  *    Can only fire one projectile at the time
  */
-public class Gun extends AbstractPositionable implements Shootable{
-    private double dx;
-    private double dy;
+public class Gun extends AbstractShooter{
 
     public Gun(){
-        super(GUN_WIDTH, GUN_HEIGHT, (GAME_WIDTH - GUN_WIDTH) / 2, GAME_HEIGHT - GUN_HEIGHT);
-    }
-
-    public double getdX(){
-        return dx;
+        super(GUN_WIDTH, GUN_HEIGHT, (GAME_WIDTH - GUN_WIDTH) / 2, GAME_HEIGHT - GUN_HEIGHT, 0, 0);
     }
     
     public void updateX(int i){
-        dx = i*GUN_MAX_DX;
+        setdX(i*GUN_MAX_DX);
     }
 
     public void move(){
-        if (dx != 0){
-            setX(getX()+dx);
+        if (getdX() != 0){
+            setX(getX()+getdX());
         }
     }
 
-    @Override
-    public Projectile fire(){
-        return Shooter.fire(this, PROJECTILE_SPEED);
-    }
+    
 
 }
