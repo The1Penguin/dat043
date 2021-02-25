@@ -48,5 +48,3 @@ public class AbstractPositionable implements Positionable{
         this.y = y;
     }
 }
-    
-

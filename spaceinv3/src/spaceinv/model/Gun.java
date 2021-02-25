@@ -7,7 +7,7 @@ import static spaceinv.model.SI.*;
  *    A Gun for the game
  *    Can only fire one projectile at the time
  */
-public class Gun extends AbstractPositionable implements Positionable, Shootable{
+public class Gun extends AbstractPositionable implements Shootable{
     private double dx;
     private double dy;
 
@@ -31,7 +31,7 @@ public class Gun extends AbstractPositionable implements Positionable, Shootable
 
     @Override
     public Projectile fire(){
-        return Shooter.fire(this, 1);
+        return Shooter.fire(this, PROJECTILE_SPEED);
     }
 
 }
