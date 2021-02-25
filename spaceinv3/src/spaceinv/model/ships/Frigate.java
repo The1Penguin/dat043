@@ -1,15 +1,16 @@
 package spaceinv.model.ships;
 
+import static spaceinv.model.SI.*;
 /*
  *   Type of space ship
  */
-public class Frigate  {
+public class Frigate  extends AbstractSpaceship{
 
     // Default value
     public static final int FRIGATE_POINTS = 300;
 
-    Frigate(double x, double y){
-        super(SHIP_WIDTH, SHIP_HEIGHT, x, y, SHIP_MAX_DX, SHIP_MAX_DY);
+    public Frigate(double x, double y){
+        super(x, y);
     }
 
 

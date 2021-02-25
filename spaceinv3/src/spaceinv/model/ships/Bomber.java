@@ -1,15 +1,15 @@
 package spaceinv.model.ships;
-
+import static spaceinv.model.SI.*;
 /*
  *   Type of space ship
  */
-public class Bomber {
+public class Bomber extends AbstractSpaceship{
 
     // Default value
     public static final int BOMBER_POINTS = 200;
 
-    Bomber(double x, double y){
-        super(SHIP_WIDTH, SHIP_HEIGHT, x, y, SHIP_MAX_DX, SHIP_MAX_DY);
+    public Bomber(double x, double y){
+        super(x, y);
     }
 
 }

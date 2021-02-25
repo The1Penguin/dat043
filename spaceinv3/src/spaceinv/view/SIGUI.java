@@ -27,6 +27,7 @@ import java.util.List;
 
 import static java.lang.System.out;
 import static spaceinv.model.SI.*;
+import spaceinv.model.ships.AbstractSpaceship;
 
 
 /*
@@ -103,7 +104,7 @@ public class SIGUI extends Application implements EventHandler {
 
     private void newGame() {
 
-        /* Use later
+        
         List<AbstractSpaceship> ships = new ArrayList<>();
         int nShips = 12 * (SHIP_WIDTH + 10);
         for (int i = LEFT_LIMIT + 1; i < nShips; i += 30) {
@@ -115,13 +116,13 @@ public class SIGUI extends Application implements EventHandler {
         for (int i = LEFT_LIMIT + 1; i < nShips; i += 30) {
             ships.add(new Bomber(i, 110));
         }
-        */
+        
 
         // TODO Build model
 
         // NOTE: Declared at top of class
         gun = new Gun();
-        spaceInv = new SI(gun);
+        spaceInv = new SI(gun, ships);
 
         renderBackground();
         timer.start();
