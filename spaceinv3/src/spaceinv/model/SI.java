@@ -69,7 +69,9 @@ public class SI {
         /*
              Movement
          */
-        gun.move();
+        if (!(shipHitLeftLimit() || shipHitRightLimit())){
+            gun.move();
+        }
 
         /*
             Ships fire
@@ -83,12 +85,18 @@ public class SI {
     }
 
     private boolean shipHitRightLimit() {
-        // TODO
+        if (gun.getX() + gun.getdX() > RIGHT_LIMIT){
+            gun.updateX(0);
+            return true;
+        }
         return false;
     }
 
     private boolean shipHitLeftLimit() {
-        // TODO
+        if (gun.getX() + gun.getdX() < LEFT_LIMIT){
+            gun.updateX(0);
+            return true;
+        }
         return false;
     }
 

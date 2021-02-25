@@ -15,18 +15,26 @@ public class Gun implements Positionable, Shootable{
     private double dx;
     private double dy;
 
+    @Override
     public double getX(){
         return x;
     }
 
+    @Override
     public double getY(){
         return y;
     }
+
+    public double getdX(){
+        return dx;
+    }
     
+    @Override
     public double getWidth(){
         return width;
     }
 
+    @Override
     public double getHeight(){
         return height;
     }
@@ -37,12 +45,11 @@ public class Gun implements Positionable, Shootable{
 
     public void move(){
         if (dx != 0){
-            if (0<=x+dx && x+dx <= (GAME_WIDTH - SHIP_WIDTH)){
-                x = x+dx;
-            }
+            x = x+dx;
         }
     }
 
+    @Override
     public Projectile fire(){
         return Shooter.fire(this, -1);
     }
