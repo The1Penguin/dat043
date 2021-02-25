@@ -35,9 +35,14 @@ public class AbstractShooter extends AbstractPositionable implements Shootable{
     public Projectile fire(){
         return Shooter.fire(this, PROJECTILE_SPEED);
     }
+
     public void move(){
         if (getdX() != 0){
             setX(getX()+getdX());
         }
+    }
+    
+    public void moveY(){
+        setY(getY()+getdY());
     }
 }

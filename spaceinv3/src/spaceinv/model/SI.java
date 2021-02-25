@@ -4,6 +4,7 @@ import spaceinv.model.ships.AbstractSpaceship;
 
 import spaceinv.event.EventBus;
 import spaceinv.event.ModelEvent;
+import spaceinv.model.ships.BattleCruiser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class SI {
     public static final int SHIP_WIDTH = 20;
     public static final int SHIP_HEIGHT = 20;
     public static final int SHIP_MAX_DX = 3;
-    public static final int SHIP_MAX_DY = 0;
+    public static final int SHIP_MAX_DY = 7;
     public static final int GUN_WIDTH = 20;
     public static final int GUN_HEIGHT = 20;
     public static final double GUN_MAX_DX = 2;
@@ -69,9 +70,7 @@ public class SI {
     // ------ Game loop (called by timer) -----------------
 
     public void update(long now) {
-        if( ships.size() == 0){
-            EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.HAS_WON));
-        }
+        
 
         /*
              Movement
@@ -97,6 +96,9 @@ public class SI {
         checkGunShot();
         checkBombs();
 
+        if( ships.size() == 0){
+            EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.HAS_WON));
+        }
     }
 
     private boolean hitRightLimit(AbstractShooter obj) {
@@ -114,13 +116,25 @@ public class SI {
     }
     public void moveShip(long now){
         if (now - lastTimeForMove > HALF_SEC) {
+            shipToMove = (shipToMove + 1) % ships.size();
             AbstractSpaceship s = ships.get(shipToMove);
             if (!(hitLeftLimit(s) || hitRightLimit(s))) {
                 s.move();
             } else {
-                s.setdX(-1*s.getdX());
+                if (hitRightLimit(s)){
+                    s.move();
+                }
+                switchDirection(s);
             }
-            shipToMove = (shipToMove + 1) % ships.size();
+        }
+    }
+
+    public void switchDirection(AbstractSpaceship s){
+        for ( AbstractSpaceship sp : ships) {
+            if (sp.getClass() == s.getClass()) {
+                sp.setdX(-sp.getdX());
+                sp.moveY();
+            }
         }
     }
 
