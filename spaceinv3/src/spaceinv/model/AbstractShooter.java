@@ -28,6 +28,10 @@ public class AbstractShooter extends AbstractPositionable implements Shootable{
         this.dy = dy;
     }
 
+    public void updateX(int i, double speed){
+        setdX(i*speed);
+    }
+
     @Override
     public Projectile fire(){
         return Shooter.fire(this, PROJECTILE_SPEED);

@@ -77,7 +77,7 @@ public class SI {
         /*
              Movement
          */
-        if (!(shipHitLeftLimit() || shipHitRightLimit())){
+        if (!(hitRightLimit(gun) || hitLeftLimit(gun))){
             gun.move();
         }
 
@@ -113,17 +113,17 @@ public class SI {
 
     }
 
-    private boolean shipHitRightLimit() {
-        if (gun.getX() + gun.getdX() > RIGHT_LIMIT){
-            gun.updateX(0);
+    private boolean hitRightLimit(AbstractShooter obj) {
+        if (obj.getX() + obj.getdX() > RIGHT_LIMIT){
+            obj.updateX(0, GUN_MAX_DX);
             return true;
         }
         return false;
     }
 
-    private boolean shipHitLeftLimit() {
-        if (gun.getX() + gun.getdX() < LEFT_LIMIT){
-            gun.updateX(0);
+    private boolean hitLeftLimit(AbstractShooter obj) {
+        if (obj.getX() + obj.getdX() < LEFT_LIMIT){
+            obj.updateX(0, GUN_MAX_DX);
             return true;
         }
         return false;
@@ -146,7 +146,7 @@ public class SI {
     }
 
     public void updateX(int i){
-        gun.updateX(i);
+        gun.updateX(i, GUN_MAX_DX);
     }
     
     // TODO More methods called by GUI

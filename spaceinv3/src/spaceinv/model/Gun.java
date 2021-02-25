@@ -12,10 +12,6 @@ public class Gun extends AbstractShooter{
     public Gun(){
         super(GUN_WIDTH, GUN_HEIGHT, (GAME_WIDTH - GUN_WIDTH) / 2, GAME_HEIGHT - GUN_HEIGHT, 0, 0);
     }
-    
-    public void updateX(int i){
-        setdX(i*GUN_MAX_DX);
-    }
 
     public void move(){
         if (getdX() != 0){
