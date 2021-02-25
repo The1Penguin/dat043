@@ -7,11 +7,9 @@ import static spaceinv.model.SI.*;
     The ground where the Gun lives.
     Used to check if projectiles from ships have hit the ground
  */
-public class Ground  {
-    private final double width = GAME_WIDTH;
-    private final double height = OUTER_SPACE_HEIGHT;
-    private final double x = 0;
-    private final double y = GAME_HEIGHT;
-
+public class Ground extends AbstractPositionable {
+    public Ground(){
+        super(GAME_WIDTH, OUTER_SPACE_HEIGHT, 0, GAME_HEIGHT - GAME_HEIGHT);
+    }
 
 }
