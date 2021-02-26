@@ -116,7 +116,7 @@ public class SI {
     }
     public void moveShip(long now){
         if (now - lastTimeForMove > HALF_SEC) {
-            shipToMove = (shipToMove + 1) % ships.size();
+            shipToMove = shipToMove % ships.size();
             AbstractSpaceship s = ships.get(shipToMove);
             if (!(hitLeftLimit(s) || hitRightLimit(s))) {
                 s.move();
@@ -125,7 +125,9 @@ public class SI {
                     s.move();
                 }
                 switchDirection(s);
+                s.move();
             }
+            shipToMove++;
         }
     }
 
