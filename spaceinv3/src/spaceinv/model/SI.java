@@ -133,16 +133,9 @@ public class SI {
     public void moveShip(long now){
         if (now - lastTimeForMove > HALF_SEC) {
             for (AbstractSpaceship s : ships ) {
-                if (!(hitLeftLimit(s) || hitRightLimit(s))) {
-                    s.move();
-                } else {
-                    if (hitRightLimit(s)){
-                        s.move();
-                    }
-                    switchDirection(s);
-                    if (!(hitRightLimit(s))){
-                        s.move();
-                    }
+                s.move();
+                if (hitLeftLimit(s) || hitRightLimit(s)) {
+                   switchDirection(s);
                 }
             }
             lastTimeForMove = now;
