@@ -92,7 +92,7 @@ public class SI {
         }
     }
 
-    private void randomFire(long now){
+    public void randomFire(long now){
         if (now - lastTimeForFire > ONE_SEC) {
             int shipToFire = rand.nextInt(ships.size());
             shipBombs.add(ships.get(shipToFire).fire());
@@ -101,14 +101,14 @@ public class SI {
 
     }
 
-    private void moveGun(){
+    public void moveGun(){
         if (!(hitRightLimit(gun) || hitLeftLimit(gun))){
             gun.move();
         }
 
     }
 
-    private void moveProjectiles(){
+    public void moveProjectiles(){
         if (gunProjectile != null){
             gunProjectile.move();
         }
@@ -117,14 +117,14 @@ public class SI {
         }
     }
 
-    private boolean hitRightLimit(AbstractShooter obj) {
+    public boolean hitRightLimit(AbstractShooter obj) {
         if (obj.getX() + obj.getdX() > RIGHT_LIMIT){
             return true;
         }
         return false;
     }
 
-    private boolean hitLeftLimit(AbstractShooter obj) {
+    public boolean hitLeftLimit(AbstractShooter obj) {
         if (obj.getX() + obj.getdX() < LEFT_LIMIT){
             return true;
         }
@@ -135,7 +135,11 @@ public class SI {
             for (AbstractSpaceship s : ships ) {
                 s.move();
                 if (hitLeftLimit(s) || hitRightLimit(s)) {
-                   switchDirection(s);
+                    if (!hitLeftLimit(s)){
+                        s.move().move();
+                    }
+                    switchDirection(s);
+                    s.move().move();    // I don't know why it might have to move right but it has to
                 }
             }
             lastTimeForMove = now;
