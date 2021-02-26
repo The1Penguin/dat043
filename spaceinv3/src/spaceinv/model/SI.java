@@ -125,7 +125,7 @@ public class SI {
                     s.move();
                 }
                 switchDirection(s);
-                s.move();
+            s.move();
             }
             shipToMove++;
         }
