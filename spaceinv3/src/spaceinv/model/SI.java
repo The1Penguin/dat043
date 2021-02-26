@@ -70,18 +70,13 @@ public class SI {
     // ------ Game loop (called by timer) -----------------
 
     public void update(long now) {
-        
-
         /*
              Movement
          */
         if (!(hitRightLimit(gun) || hitLeftLimit(gun))){
             gun.move();
         }
-        
         moveShip(now);
-
-
         
         /*
             Ships fire
@@ -125,7 +120,9 @@ public class SI {
                     s.move();
                 }
                 switchDirection(s);
-            s.move();
+                if (!(hitRightLimit(s))){
+                    s.move();
+                }
             }
             shipToMove++;
         }
@@ -153,7 +150,7 @@ public class SI {
             for ( AbstractSpaceship s : ships) {
                 if (collision(gunProjectile, s)) {
                     toRemove.add(s);
-                    points += s.points;
+                    points += s.getPoints();
                 }   
             }
             boolean removed = ships.removeAll(toRemove);
