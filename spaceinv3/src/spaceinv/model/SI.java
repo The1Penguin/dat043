@@ -4,7 +4,6 @@ import spaceinv.model.ships.AbstractSpaceship;
 
 import spaceinv.event.EventBus;
 import spaceinv.event.ModelEvent;
-import spaceinv.model.ships.BattleCruiser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,17 +72,14 @@ public class SI {
         /*
              Movement
          */
-        if (!(hitRightLimit(gun) || hitLeftLimit(gun))){
-            gun.move();
-        }
+        moveGun();
         moveShip(now);
-        
+        moveProjectiles();
+                
         /*
             Ships fire
          */
-        if (gunProjectile != null){
-            gunProjectile.move();
-        }
+        randomFire(now);
 
         /*
              Collisions
@@ -93,6 +89,31 @@ public class SI {
 
         if( ships.size() == 0){
             EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.HAS_WON));
+        }
+    }
+
+    private void randomFire(long now){
+        if (now - lastTimeForFire > ONE_SEC) {
+            int shipToFire = rand.nextInt(ships.size());
+            shipBombs.add(ships.get(shipToFire).fire());
+            lastTimeForFire = now;
+        }
+
+    }
+
+    private void moveGun(){
+        if (!(hitRightLimit(gun) || hitLeftLimit(gun))){
+            gun.move();
+        }
+
+    }
+
+    private void moveProjectiles(){
+        if (gunProjectile != null){
+            gunProjectile.move();
+        }
+        for ( Projectile p : shipBombs) {
+            p.move();
         }
     }
 
@@ -111,20 +132,20 @@ public class SI {
     }
     public void moveShip(long now){
         if (now - lastTimeForMove > HALF_SEC) {
-            shipToMove = shipToMove % ships.size();
-            AbstractSpaceship s = ships.get(shipToMove);
-            if (!(hitLeftLimit(s) || hitRightLimit(s))) {
-                s.move();
-            } else {
-                if (hitRightLimit(s)){
+            for (AbstractSpaceship s : ships ) {
+                if (!(hitLeftLimit(s) || hitRightLimit(s))) {
                     s.move();
-                }
-                switchDirection(s);
-                if (!(hitRightLimit(s))){
-                    s.move();
+                } else {
+                    if (hitRightLimit(s)){
+                        s.move();
+                    }
+                    switchDirection(s);
+                    if (!(hitRightLimit(s))){
+                        s.move();
+                    }
                 }
             }
-            shipToMove++;
+            lastTimeForMove = now;
         }
     }
 
