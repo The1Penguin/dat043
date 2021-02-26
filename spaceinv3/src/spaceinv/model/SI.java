@@ -26,7 +26,7 @@ public class SI {
     public static final int SHIP_WIDTH = 20;
     public static final int SHIP_HEIGHT = 20;
     public static final int SHIP_MAX_DX = 3;
-    public static final int SHIP_MAX_DY = 7;
+    public static final int SHIP_MAX_DY = 2;
     public static final int GUN_WIDTH = 20;
     public static final int GUN_HEIGHT = 20;
     public static final double GUN_MAX_DX = 2;
@@ -148,9 +148,9 @@ public class SI {
 
     public void switchDirection(AbstractSpaceship s){
         for ( AbstractSpaceship sp : ships) {
+            sp.moveY();
             if (sp.getClass() == s.getClass()) {
                 sp.setdX(-sp.getdX());
-                sp.moveY();
             }
         }
     }
@@ -177,6 +177,7 @@ public class SI {
             }
 
             if (removed){
+                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GUN_HIT_SHIP, gunProjectile));
                 gunProjectile = null;
             }
         }
@@ -187,6 +188,10 @@ public class SI {
         for ( Projectile p : shipBombs ) {
             if (collision(p, ground)) {
                 toRemove.add(p);
+                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.BOMB_HIT_GROUND));
+            } else if (collision(p, gun)) {
+                toRemove.add(p);
+                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.BOMB_HIT_GUN, gun));
             }
         }
         shipBombs.removeAll(toRemove);
@@ -197,6 +202,7 @@ public class SI {
     public void fireGun() {
         if (gunProjectile == null){
             gunProjectile = gun.fire();
+            EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GUN_SHOOT));
         }
     }
 
