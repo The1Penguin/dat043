@@ -10,7 +10,7 @@ public class Frigate  extends AbstractSpaceship{
     public static final int FRIGATE_POINTS = 300;
     public static int dx = SHIP_MAX_DX;
 
-    public Frigate(double x, double y){
+    public Frigate(double x, double y) {
         super(x, y, dx, FRIGATE_POINTS);
     }
 

@@ -106,14 +106,14 @@ public class SI {
     }
 
     public void moveGun() {
-        if (!(hitRightLimit(gun) || hitLeftLimit(gun))){
+        if (!(hitRightLimit(gun) || hitLeftLimit(gun))) {
             gun.move();
         }
 
     }
 
     public void moveProjectiles() {
-        if (gunProjectile != null){
+        if (gunProjectile != null) {
             gunProjectile.move();
         }
         for ( Projectile p : shipBombs) {
@@ -122,24 +122,24 @@ public class SI {
     }
 
     public boolean hitRightLimit(AbstractShooter obj) {
-        if (obj.getX() + obj.getdX() > RIGHT_LIMIT){
+        if (obj.getX() + obj.getdX() > RIGHT_LIMIT) {
             return true;
         }
         return false;
     }
 
     public boolean hitLeftLimit(AbstractShooter obj) {
-        if (obj.getX() + obj.getdX() < LEFT_LIMIT){
+        if (obj.getX() + obj.getdX() < LEFT_LIMIT) {
             return true;
         }
         return false;
     }
-    public void moveShip(long now){
+    public void moveShip(long now) {
         if (now - lastTimeForMove > HALF_SEC) {
             for (AbstractSpaceship s : ships ) {
                 s.move();
                 if (hitLeftLimit(s) || hitRightLimit(s)) {
-                    if (!hitLeftLimit(s)){
+                    if (!hitLeftLimit(s)) {
                         s.move().move();
                     }
                     switchDirection(s);
@@ -167,7 +167,7 @@ public class SI {
     }
     
     public void checkGunShot() {
-        if (gunProjectile != null){
+        if (gunProjectile != null) {
             List<AbstractSpaceship> toRemove = new ArrayList<>();
             for ( AbstractSpaceship s : ships) {
                 if (collision(gunProjectile, s)) {
@@ -205,7 +205,7 @@ public class SI {
     // ---------- Interaction with GUI  -------------------------
 
     public void fireGun() {
-        if (gunProjectile == null){
+        if (gunProjectile == null) {
             gunProjectile = gun.fire();
             EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GUN_SHOOT));
         }

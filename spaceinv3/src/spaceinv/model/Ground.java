@@ -8,7 +8,7 @@ import static spaceinv.model.SI.*;
     Used to check if projectiles from ships have hit the ground
  */
 public class Ground extends AbstractPositionable {
-    public Ground(){
+    public Ground() {
         super(GAME_WIDTH, GROUND_HEIGHT, 0, GAME_HEIGHT - GAME_HEIGHT);
     }
 
