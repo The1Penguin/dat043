@@ -2,7 +2,7 @@ package spaceinv.model;
 
 import static spaceinv.model.SI.*;
 
-public class AbstractShooter extends AbstractPositionable implements Shootable{  
+public abstract class AbstractShooter extends AbstractPositionable implements Shootable{  
     private double dx;
     private double dy;
     private double projectileSpeed;

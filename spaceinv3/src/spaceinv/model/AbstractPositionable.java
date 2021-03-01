@@ -2,7 +2,7 @@ package spaceinv.model;
 
 import static spaceinv.model.SI.*;
 
-public class AbstractPositionable implements Positionable{
+public abstract class AbstractPositionable implements Positionable{
     private final double width;
     private final double height;
     private double x;
