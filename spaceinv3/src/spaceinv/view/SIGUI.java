@@ -173,6 +173,10 @@ public class SIGUI extends Application implements EventHandler {
                 timer.stop();
                 running = false;
                 break;
+            case HAS_LOST:
+                timer.stop();
+                running = false;
+                break;
             default:
         }
     }
@@ -190,6 +194,8 @@ public class SIGUI extends Application implements EventHandler {
         fg.setFill(Assets.INSTANCE.colorFgText);
         fg.fillText(String.valueOf(spaceInv.getPoints()),
                 10 , GAME_HEIGHT - Assets.INSTANCE.font.getSize());
+        fg.fillText(String.valueOf(spaceInv.getLives()),
+                GAME_WIDTH-15 , GAME_HEIGHT - Assets.INSTANCE.font.getSize());
 
     }
 

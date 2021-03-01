@@ -51,6 +51,7 @@ public class SI {
     private final List<List<AbstractSpaceship>> formation;
     private Projectile gunProjectile;
     private int points;
+    private int lives = 3;
 
     public SI(Gun gun, List<AbstractSpaceship> ships, List<List<AbstractSpaceship>> formation) {
         this.gun = gun;
@@ -87,12 +88,15 @@ public class SI {
         checkGunShot();
         checkBombs();
 
-        if( ships.size() == 0){
+        if (ships.size() == 0) {
             EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.HAS_WON));
+        }
+        if (lives == 0) {
+            EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.HAS_LOST));
         }
     }
 
-    public void randomFire(long now){
+    public void randomFire(long now) {
         if (now - lastTimeForFire > ONE_SEC) {
             int shipToFire = rand.nextInt(ships.size());
             shipBombs.add(ships.get(shipToFire).fire());
@@ -101,14 +105,14 @@ public class SI {
 
     }
 
-    public void moveGun(){
+    public void moveGun() {
         if (!(hitRightLimit(gun) || hitLeftLimit(gun))){
             gun.move();
         }
 
     }
 
-    public void moveProjectiles(){
+    public void moveProjectiles() {
         if (gunProjectile != null){
             gunProjectile.move();
         }
@@ -146,7 +150,7 @@ public class SI {
         }
     }
 
-    public void switchDirection(AbstractSpaceship s){
+    public void switchDirection(AbstractSpaceship s) {
         for ( AbstractSpaceship sp : ships) {
             sp.moveY();
             if (sp.getClass() == s.getClass()) {
@@ -155,14 +159,14 @@ public class SI {
         }
     }
 
-    public boolean collision(AbstractPositionable obj1, AbstractPositionable obj2){
+    public boolean collision(AbstractPositionable obj1, AbstractPositionable obj2) {
         return (obj1.getX() < obj2.getX() + obj2.getWidth() &&
     obj1.getX() + obj1.getWidth() > obj2.getX() &&
     obj1.getY() < obj2.getY() + obj2.getHeight() &&
     obj1.getY() + obj1.getHeight() > obj2.getY());
     }
     
-    public void checkGunShot(){
+    public void checkGunShot() {
         if (gunProjectile != null){
             List<AbstractSpaceship> toRemove = new ArrayList<>();
             for ( AbstractSpaceship s : ships) {
@@ -172,24 +176,25 @@ public class SI {
                 }   
             }
             boolean removed = ships.removeAll(toRemove);
-            if (collision(gunProjectile, outer_space)){
+            if (collision(gunProjectile, outer_space)) {
                 removed = true;
             }
 
-            if (removed){
+            if (removed) {
                 EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GUN_HIT_SHIP, gunProjectile));
                 gunProjectile = null;
             }
         }
     }
     
-    public void checkBombs(){
+    public void checkBombs() {
         List<Projectile> toRemove = new ArrayList<>();
         for ( Projectile p : shipBombs ) {
             if (collision(p, ground)) {
                 toRemove.add(p);
                 EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.BOMB_HIT_GROUND));
             } else if (collision(p, gun)) {
+                lives--;
                 toRemove.add(p);
                 EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.BOMB_HIT_GUN, gun));
             }
@@ -206,14 +211,14 @@ public class SI {
         }
     }
 
-    public void updateX(int i){
+    public void updateX(int i) {
         gun.updateX(i, GUN_MAX_DX);
     }
 
     public List<Positionable> getPositionables() {
         List<Positionable> ps = new ArrayList<>();
         ps.add(gun);
-        if (gunProjectile != null){
+        if (gunProjectile != null) {
         ps.add(gunProjectile);
         }
         ps.addAll(ships);
@@ -225,5 +230,7 @@ public class SI {
         return points;
     }
 
-
+    public int getLives() {
+        return lives;
+    }
 }

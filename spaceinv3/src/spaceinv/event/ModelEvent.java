@@ -10,6 +10,7 @@ public class ModelEvent {
     // Enumeration of possible events
     public enum Type {
         HAS_WON,           // Add types of events as you like
+        HAS_LOST,
         GUN_HIT_SHIP,
         GUN_SHOOT,
         BOMB_HIT_GROUND,
