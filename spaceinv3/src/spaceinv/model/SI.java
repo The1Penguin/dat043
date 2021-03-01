@@ -233,4 +233,12 @@ public class SI {
     public int getLives() {
         return lives;
     }
+
+    public String getScreen() {
+        if (lives == 0) {
+            return "You lost";
+        } else {
+            return "You won";
+        }
+    }
 }

@@ -172,10 +172,12 @@ public class SIGUI extends Application implements EventHandler {
             case HAS_WON:
                 timer.stop();
                 running = false;
+            render();
                 break;
             case HAS_LOST:
                 timer.stop();
                 running = false;
+                render();
                 break;
             default:
         }
@@ -196,7 +198,11 @@ public class SIGUI extends Application implements EventHandler {
                 10 , GAME_HEIGHT - Assets.INSTANCE.font.getSize());
         fg.fillText(String.valueOf(spaceInv.getLives()),
                 GAME_WIDTH-15 , GAME_HEIGHT - Assets.INSTANCE.font.getSize());
-
+        if (spaceInv.getLives() == 0) {
+            fg.fillText(spaceInv.getScreen(),
+                ( (double) GAME_WIDTH )/2 - 2 * Assets.INSTANCE.font.getSize(), 
+                ( (double) GAME_HEIGHT)/2 - 2 * Assets.INSTANCE.font.getSize());
+        }
     }
 
     private void renderBackground() {
