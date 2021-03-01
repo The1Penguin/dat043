@@ -198,7 +198,7 @@ public class SIGUI extends Application implements EventHandler {
                 10 , GAME_HEIGHT - Assets.INSTANCE.font.getSize());
         fg.fillText(String.valueOf(spaceInv.getLives()),
                 GAME_WIDTH-15 , GAME_HEIGHT - Assets.INSTANCE.font.getSize());
-        if (spaceInv.getLives() == 0) {
+        if (!running) {
             fg.fillText(spaceInv.getScreen(),
                 ( (double) GAME_WIDTH )/2 - 2 * Assets.INSTANCE.font.getSize(), 
                 ( (double) GAME_HEIGHT)/2 - 2 * Assets.INSTANCE.font.getSize());
