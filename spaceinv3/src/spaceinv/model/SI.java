@@ -172,6 +172,7 @@ public class SI {
             for ( AbstractSpaceship s : ships) {
                 if (collision(gunProjectile, s)) {
                     toRemove.add(s);
+                    EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GUN_HIT_SHIP, gunProjectile));
                     points += s.getPoints();
                 }   
             }
@@ -181,7 +182,6 @@ public class SI {
             }
 
             if (removed) {
-                EventBus.INSTANCE.publish(new ModelEvent(ModelEvent.Type.GUN_HIT_SHIP, gunProjectile));
                 gunProjectile = null;
             }
         }
